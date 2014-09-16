@@ -71,7 +71,7 @@ Same thing with this line...
 return 'http://localhost/QvAJAXZfc/Authenticate.aspx?type=html&webticket=%s&try=%s&back=%s' % (xmldoc[0].text, '/QlikView/', '')
 ```
 
-And that's all there is to it! The only thing left to do is to setup QlikView Server to respond to webticket requests from the machine running this code. I recommend using IP whitelists. Also make sure to set the custom authentication url to the server you're installing this on and port 1443 (you can change this in the script).
+And that's all there is to it! The only thing left to do is to setup QlikView Server to respond to webticket requests from the machine running this code. I recommend using IP whitelists. Also make sure to set the custom authentication url to https://<server>:1443 (you can change this in the script).
 
 Running
 -------
@@ -81,8 +81,6 @@ Open a terminal window, change to the installed directory and give the following
 ```sh
 python qlikoauth.py
 ```
-
-This launches a webserver on the port 1443 (you can change this in the code).
 
 License
 -------
