@@ -12,15 +12,15 @@ Note
 Installation
 ------------
 
-1. Download and install [Python 2.x](https://www.python.org/) (NOT compatible with 3.x due to the Google library dependencies)
+* Download and install [Python 2.x](https://www.python.org/) (NOT compatible with 3.x due to the Google library dependencies)
 
-2. To install or upgrade pip, securely download [git-pip.py](https://bootstrap.pypa.io/get-pip.py). Then run the following (which may require administrator access):
+* To install or upgrade pip, securely download [git-pip.py](https://bootstrap.pypa.io/get-pip.py). Then run the following (which may require administrator access):
 
 ```sh
 python get-pip.py
 ```
 
-3. After pip is installed run the following command:
+* After pip is installed run the following command:
 
 ```sh
 pip install https://github.com/braathen/qlikoauth/zipball/master
