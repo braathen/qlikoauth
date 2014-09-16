@@ -7,7 +7,7 @@ Note
 ----
 
 * OAuth 2.0 should only be implemented using SSL/TLS only!
-* Proper certificates needs to be used and converted to .pem format and copied to the same directory as the script.
+* Proper certificates needs to be used and converted to .pem format and copied to the same directory as the script. For testing purposed the included self-generated certificates may be used.
 
 Installation
 ------------
@@ -71,7 +71,7 @@ Same thing with this line...
 return 'http://localhost/QvAJAXZfc/Authenticate.aspx?type=html&webticket=%s&try=%s&back=%s' % (xmldoc[0].text, '/QlikView/', '')
 ```
 
-And that's all there is to it! The only thing left to do is to setup QlikView Server to respond to webticket requests from the machine running this code. I recommend using IP whitelists.
+And that's all there is to it! The only thing left to do is to setup QlikView Server to respond to webticket requests from the machine running this code. I recommend using IP whitelists. Also make sure to set the custom authentication url to the server you're installing this on and port 1443 (you can change this in the script).
 
 Running
 -------
@@ -82,7 +82,7 @@ Open a terminal window, change to the installed directory and give the following
 python qlikoauth.py
 ```
 
-This launches a webserver on the port 1443 (you can change this in the code). In QlikView and Qlik Sense, set this url as custom authentication URL.
+This launches a webserver on the port 1443 (you can change this in the code).
 
 License
 -------
