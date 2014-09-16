@@ -17,7 +17,7 @@ class GoogleAuth:
     def index(self, code=None):
         flow = flow_from_clientsecrets('client_secrets.json',
                                        scope='https://www.googleapis.com/auth/userinfo.email',
-                                       redirect_uri='https://qlikgoogle.localtest.me:1443')
+                                       redirect_uri='https://localhost:1443')
 
         if code is None:
             auth_uri = flow.step1_get_authorize_url()

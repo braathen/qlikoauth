@@ -7,7 +7,7 @@ Note
 ----
 
 * OAuth 2.0 should only be implemented using SSL/TLS only!
-* Proper certificates needs to be used and converted to .pem format and copied to the same directory as the script. For testing purposed the included self-generated certificates may be used.
+* Proper certificates needs to be used and converted to .pem format and copied to the same directory as the script. For testing purposes the included self-generated certificates may be used and the setup below uses localhost only for testing.
 
 Installation
 ------------
@@ -38,7 +38,7 @@ The client_secrets.json file needs to be updated with your own CLIENT_ID, CLIENT
   "web": {
     "client_id": "YOUR_OWN_CLIENT_ID",
     "client_secret": "YOUR_OWN_CLIENT_SECRET",
-    "redirect_uris": ["https://qlikgoogle.localtest.me:1443"],
+    "redirect_uris": ["https://localhost:1443"],
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
     "token_uri": "https://accounts.google.com/o/oauth2/token"
   }
@@ -50,7 +50,7 @@ In the C:\Qlik\qlikoauth\qlikoauth.py file there are some things to consider and
 ```python
 flow = flow_from_clientsecrets('client_secrets.json',
                                scope='https://www.googleapis.com/auth/userinfo.email',
-                               redirect_uri='https://qlikgoogle.localtest.me:1443')
+                               redirect_uri='https://localhost:1443')
 ```
 
 This line checks the domain of the authenticated user. Note: If you don't have your own domain and take some precaution it means that every Google user on the planet will be able to authenticate against your QlikView/Sense server. It might be a good idea to prevent this, even though you can of course determine who can see what from a QlikView/Sense perspective.
@@ -71,7 +71,7 @@ Same thing with this line...
 return 'http://localhost/QvAJAXZfc/Authenticate.aspx?type=html&webticket=%s&try=%s&back=%s' % (xmldoc[0].text, '/QlikView/', '')
 ```
 
-And that's all there is to it! The only thing left to do is to setup QlikView Server to respond to webticket requests from the machine running this code. I recommend using IP whitelists. Also make sure to set the custom authentication url to https://<server>:1443 (you can change this in the script).
+And that's all there is to it! The only thing left to do is to setup QlikView Server to respond to webticket requests from the machine running this code. I recommend using IP whitelists. Also make sure to set the custom authentication url to https://localhost:1443 (you can change this in the script).
 
 Running
 -------
